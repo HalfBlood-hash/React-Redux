@@ -85,3 +85,22 @@ step 4
     reducers
         inside reducer we have action and state 
         
+useSelector is used to display the value of slice 
+useDispatch use to change the value in store
+
+import React from 'react'
+import ReduxChild from './ReduxChild'
+import { useSelector,useDispatch } from 'react-redux'
+import { decrement } from '../feature/showSlice'
+
+export default function ReduxParent() {
+    const data=useSelector((state)=>state.showslice.value)
+    const dispatch=useDispatch();
+  return (
+    <div>
+      <p>Redux parent- {data} </p>
+      <button onClick={()=>dispatch(decrement())}>Decrement-</button>
+      <ReduxChild />
+    </div>
+  )
+}
